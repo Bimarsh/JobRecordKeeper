@@ -52,6 +52,13 @@
 			<version>2.7.0</version>
 		</dependency>
 
+		<!-- This is enough for LocalDate to be deserialized using ISO format, 
+			localdate was not being serialized so added this one -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
