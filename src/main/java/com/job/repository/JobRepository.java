@@ -12,8 +12,7 @@ import com.job.modal.Job;
 
 @Repository
 public interface JobRepository extends MongoRepository<Job, String> {
-public List<Job> findByRecruiter(Employer recruiter);
-public List<Job> findByDirectHire(Employer directHire);
+
 public List<Job> findByRegisteredDate(LocalDate registeredDate);
 public List<Job> findByDateApplied(LocalDate dateApplied);
 

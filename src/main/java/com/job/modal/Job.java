@@ -9,8 +9,15 @@ public class Job {
 	@Id
 	private String id;
 	private String position;
-	private Employer recruiter;
-	private Employer directHire;
+	private Employer employer;
+	public Employer getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
+
 	private String jobDescription;
 	private LocalDate registeredDate;
 	private LocalDate dateApplied;
@@ -48,22 +55,9 @@ public class Job {
 		this.position = position;
 	}
 
-	public Employer getRecruiter() {
-		return recruiter;
-	}
 
-	public void setRecruiter(Employer recruiter) {
-		this.recruiter = recruiter;
-	}
 
-	public Employer getDirectHire() {
-		return directHire;
-	}
-
-	public void setDirectHire(Employer directHire) {
-		this.directHire = directHire;
-	}
-
+	
 	public String getId() {
 		return id;
 	}

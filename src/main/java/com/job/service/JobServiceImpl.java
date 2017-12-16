@@ -31,15 +31,15 @@ public class JobServiceImpl implements JobService {
 
 	
 
-	@Override
-	public List<Job> getJobByRecruiter(Employer recruiter) {
-		return jobRepository.findByRecruiter(recruiter);
-	}
-
-	@Override
-	public List<Job> getJobByDirectHire(Employer directHire) {
-		return jobRepository.findByDirectHire(directHire);
-	}
+//	@Override
+//	public List<Job> getJobByRecruiter(Employer recruiter) {
+//		return jobRepository.findByRecruiter(recruiter);
+//	}
+//
+//	@Override
+//	public List<Job> getJobByDirectHire(Employer directHire) {
+//		return jobRepository.findByDirectHire(directHire);
+//	}
 
 	
 	@Override
@@ -50,6 +50,18 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public List<Job> getJobByRegisteredDate(LocalDate registeredDate) {
 		return jobRepository.findByRegisteredDate(registeredDate);
+	}
+
+	@Override
+	public List<Job> getJobByRecruiter(Employer recruiter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Job> getJobByDirectHire(Employer directHire) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
