@@ -21,6 +21,7 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public Job recordJob(Job job) {
 		job.setRegisteredDate(LocalDate.now());
+		job.setDateApplied(LocalDate.now());
 		return jobRepository.save(job);
 	}
 
@@ -62,6 +63,12 @@ public class JobServiceImpl implements JobService {
 	public List<Job> getJobByDirectHire(Employer directHire) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Job getJobById(String id) {
+		// TODO Auto-generated method stub
+		return jobRepository.findOne(id);
 	}
 
 }

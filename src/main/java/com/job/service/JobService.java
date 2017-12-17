@@ -14,5 +14,6 @@ public interface JobService {
 	public List<Job> getJobByDirectHire(Employer directHire);
 	public List<Job> getJobByRegisteredDate(LocalDate registeredDate);
 	public List<Job> getJobByDateApplied(LocalDate dateApplied);
+	public Job getJobById(String id);
 
 }

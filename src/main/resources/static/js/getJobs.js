@@ -2,11 +2,23 @@
  * 
  */
 $(document).ready(function() {
+	
+	$("#product_view").hide();
+	
     getJobs();
     $("#jobform").submit(function(event){
     	event.preventDefault();
         postJob();
     });
+    //for dynamicaly generated html tags u need to do this 
+    $('.tbody').on('click','#jobDetail',function()
+    		{
+    	//gets the href element inside anchor jobDetail
+    	     var href=$(this).attr('href');
+    	     getJobBYId(href);
+    	     //alert(href);
+    		});
+    
     });
     
 
@@ -28,7 +40,7 @@ $(document).ready(function() {
           '<td>'+job.employer.address.state+'</td>'+
           '<td>'+job.employer.address.source+'</td>'+
           '<td>'+'<a href='+job.employer.address.website+'>'+job.employer.address.website+'</a>'+'</td>'+
-          '<td>'+'<span class="label label-success">'+'View Job Desc'+'</span>'
+          '<td>'+'<a id="jobDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'View Job Desc'+'</span>'+'</a>'
           +'</td>'                                       
       +'</tr>')
           
@@ -46,6 +58,24 @@ function ConvertFormToJSON(form){
     
     return json;
 }
+
+function getJobBYId(href)
+{ 	event.preventDefault();
+	$.ajax({
+		url:href,
+		type:'GET',
+		success:function(get)
+		{
+			console.log(JSON.stringify(get));
+			$('.modal-title').html(get.position);
+			$('.cName').html(get.employer.companyName);
+			$('.embed-responsive-item').attr("src",get.employer.address.website);
+			$("#desc").html(get.jobDescription);
+			$("#product_view").modal();
+		}
+	});
+}
+
 
 
 function postJob()
