@@ -22,6 +22,7 @@ $(document).ready(function() {
     });
     
 
+
     function getJobs()
     {
     	$.ajax({
@@ -29,7 +30,9 @@ $(document).ready(function() {
         }).then(function(data) {
         $.each(data,function(id, job)
         {
-          $('.tbody').append('<tr>'+
+          $('.tbody').append('<tr id='+job.id+'>'+
+        		  console.log('statuss: '+job.status)+
+        		  
           '<td>'+job.position+'</td>'+
 //          '<td>'+job.jobDescription+'</td>'+
           '<td>'+job.dateApplied+'</td>'+
@@ -43,6 +46,9 @@ $(document).ready(function() {
           '<td>'+'<a id="jobDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'View Job Desc'+'</span>'+'</a>'
           +'</td>'                                       
       +'</tr>')
+      checkDisabledJob(job);
+       
+      
           
         });
 });
@@ -72,11 +78,36 @@ function getJobBYId(href)
 			$('.embed-responsive-item').attr("src",get.employer.address.website);
 			$("#desc").html(get.jobDescription);
 			$("#product_view").modal();
+			$("#disable").click(function()
+					{
+				     $.ajax({
+				    	 url:'jobs/disable/'+get.id,
+				    	 type:'GET'
+				     })
+					})
+					$("#enable").click(function()
+					{
+				     $.ajax({
+				    	 url:'jobs/enable/'+get.id,
+				    	 type:'GET'
+				     })
+					})
 		}
 	});
 }
 
-
+function checkDisabledJob(job)
+{
+	console.log("Hi"+job.status);
+	if(!job.status)
+	   {
+   $('#'+job.id+'').css('background-color', '#ef757bd4');    	   
+	   }
+	else
+		{
+		$('#'+job.id+'').css('background-color', '#88e27de6');
+		}
+	}
 
 function postJob()
 {

@@ -15,5 +15,7 @@ public interface JobService {
 	public List<Job> getJobByRegisteredDate(LocalDate registeredDate);
 	public List<Job> getJobByDateApplied(LocalDate dateApplied);
 	public Job getJobById(String id);
+	public void disableJob(String id);
+	public void enableJob(String id);
 
 }

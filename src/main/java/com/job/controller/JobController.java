@@ -55,6 +55,18 @@ public class JobController {
 	{
 		return jobService.getJobById(id);
 	}
+	
+	@RequestMapping(value="/disable/{id}",method=RequestMethod.GET)
+	public void disableJobById(@PathVariable("id")String id)
+	{
+		jobService.disableJob(id);
+	}
+	@RequestMapping(value="/enable/{id}",method=RequestMethod.GET)
+	public void enableJobById(@PathVariable("id")String id)
+	{
+		jobService.enableJob(id);
+	}
+	
 	//public List<Employers> getEmployersByAddress()
 
 }

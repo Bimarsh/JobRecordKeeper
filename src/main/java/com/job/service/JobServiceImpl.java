@@ -22,6 +22,7 @@ public class JobServiceImpl implements JobService {
 	public Job recordJob(Job job) {
 		job.setRegisteredDate(LocalDate.now());
 		job.setDateApplied(LocalDate.now());
+		job.setStatus(true);
 		return jobRepository.save(job);
 	}
 
@@ -69,6 +70,22 @@ public class JobServiceImpl implements JobService {
 	public Job getJobById(String id) {
 		// TODO Auto-generated method stub
 		return jobRepository.findOne(id);
+	}
+
+	@Override
+	public void disableJob(String id) {
+		Job job= jobRepository.findOne(id);
+		job.setStatus(false);
+		jobRepository.save(job);
+		
+	}
+
+	@Override
+	public void enableJob(String id) {
+		Job job= jobRepository.findOne(id);
+		job.setStatus(true);
+		jobRepository.save(job);
+		
 	}
 
 }

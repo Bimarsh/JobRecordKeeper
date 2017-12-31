@@ -10,6 +10,15 @@ public class Job {
 	private String id;
 	private String position;
 	private Employer employer;
+	private boolean status;
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	public Employer getEmployer() {
 		return employer;
 	}
