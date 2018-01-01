@@ -17,5 +17,6 @@ public interface JobService {
 	public Job getJobById(String id);
 	public void disableJob(String id);
 	public void enableJob(String id);
+	public void deleteJobById(String id);
 
 }

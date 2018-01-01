@@ -2,7 +2,9 @@
  * 
  */
 $(document).ready(function() {
-	
+	$.ajaxSetup ({
+        cache: false
+    });
 	$("#product_view").hide();
 	
     getJobs();
@@ -18,6 +20,14 @@ $(document).ready(function() {
     	     getJobBYId(href);
     	     //alert(href);
     		});
+    $('.tbody').on('click','#deleteDetail',function()
+    		{
+    	//gets the href element inside anchor jobDetail
+    	     var href=$(this).attr('href');
+    	     deleteJobByID(href);
+    	     
+    	     //alert(href);
+    		});
     
     });
     
@@ -30,6 +40,7 @@ $(document).ready(function() {
         }).then(function(data) {
         $.each(data,function(id, job)
         {
+        	console.log("GET "+job);
           $('.tbody').append('<tr id='+job.id+'>'+
         		  console.log('statuss: '+job.status)+
         		  
@@ -44,7 +55,9 @@ $(document).ready(function() {
           '<td>'+job.employer.address.source+'</td>'+
           '<td>'+'<a href='+job.employer.address.website+'>'+job.employer.address.website+'</a>'+'</td>'+
           '<td>'+'<a id="jobDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'View Job Desc'+'</span>'+'</a>'
-          +'</td>'                                       
+          +'</td>'
+          +'<td>'+'<a id="deleteDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'Delete Job'+'</span>'+'</a>'
+          +'</td>'
       +'</tr>')
       checkDisabledJob(job);
        
@@ -52,6 +65,21 @@ $(document).ready(function() {
           
         });
 });
+    }
+    
+    
+    function deleteJobByID(href)
+    {
+    	event.preventDefault();
+    	$.ajax({
+    		url:href,
+    		type:'DELETE',
+    		success:function()
+    		{
+    			$('.tbody').children().remove();
+    	    	getJobs();
+    		}
+    	});
     }
 
 function ConvertFormToJSON(form){

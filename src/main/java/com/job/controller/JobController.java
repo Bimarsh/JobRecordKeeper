@@ -55,6 +55,11 @@ public class JobController {
 	{
 		return jobService.getJobById(id);
 	}
+	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	public void deleteById(@PathVariable("id")String id)
+	{
+		jobService.deleteJobById(id);
+	}
 	
 	@RequestMapping(value="/disable/{id}",method=RequestMethod.GET)
 	public void disableJobById(@PathVariable("id")String id)

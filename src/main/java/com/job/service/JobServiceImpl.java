@@ -88,4 +88,11 @@ public class JobServiceImpl implements JobService {
 		
 	}
 
+	@Override
+	public void deleteJobById(String id) {
+	
+		jobRepository.delete(jobRepository.findOne(id));
+		
+	}
+
 }
