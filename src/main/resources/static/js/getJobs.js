@@ -53,11 +53,10 @@ $(document).ready(function() {
           '<td>'+job.employer.address.email+'</td>'+
           '<td>'+job.employer.address.state+'</td>'+
           '<td>'+job.employer.address.source+'</td>'+
-          '<td>'+'<a href='+job.employer.address.website+'>'+job.employer.address.website+'</a>'+'</td>'+
-          '<td>'+'<a id="jobDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'View Job Desc'+'</span>'+'</a>'
+          '<td>'+'<a href="'+job.employer.address.website+'"class="btn btn-warning" role="button">Goto Website</a>'+'</td>'+
+          '<td>'+'<a id="jobDetail" href="jobs/'+job.id+'"class="btn btn-info" role="button">View JobDescription</a>'
           +'</td>'
-          +'<td>'+'<a id="deleteDetail" href=jobs/'+job.id+'>'+'<span class="label label-success">'+'Delete Job'+'</span>'+'</a>'
-          +'</td>'
+          +'<td>'+'<a id="deleteDetail" href="jobs/'+job.id+'"class="btn btn-danger" role="button">Delete Application</a>' +'</td>'
       +'</tr>')
       checkDisabledJob(job);
        
