@@ -47,7 +47,6 @@ $(document).ready(function() {
           '<td>'+job.position+'</td>'+
 //          '<td>'+job.jobDescription+'</td>'+
           '<td>'+job.dateApplied+'</td>'+
-          '<td>'+job.interviewDate+'</td>'+
           '<td>'+job.employer.companyName+'</td>'+
           '<td>'+job.employer.employerType+'</td>'+
           '<td>'+job.employer.address.email+'</td>'+
@@ -142,7 +141,6 @@ function postJob()
 //	var data=JSON.stringify(formData);
 //	var jobdata={}
 	
-	var data=ConvertFormToJSON("#jobform");
 	var jsonDatas={
 		  jobDescription: $("#jobDescription").val(),
 		  position: $("#position").val(),

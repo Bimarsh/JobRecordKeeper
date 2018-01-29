@@ -11,6 +11,7 @@ public class Job {
 	private String position;
 	private Employer employer;
 	private boolean status;
+	private User user;
 	public boolean isStatus() {
 		return status;
 	}
@@ -42,6 +43,14 @@ public class Job {
 
 	public LocalDate getRegisteredDate() {
 		return registeredDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public void setRegisteredDate(LocalDate registeredDate) {

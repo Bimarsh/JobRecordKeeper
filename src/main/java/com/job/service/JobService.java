@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.job.modal.Employer;
 import com.job.modal.Job;
+import com.job.modal.User;
 
 public interface JobService {
 	
@@ -18,5 +19,6 @@ public interface JobService {
 	public void disableJob(String id);
 	public void enableJob(String id);
 	public void deleteJobById(String id);
+	public List<Job>getJobByUser(User user);
 
 }

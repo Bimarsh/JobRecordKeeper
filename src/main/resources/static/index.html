@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/navbar.css" />
+<!-- <link rel="stylesheet" href="css/navbar.css" /> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/getJobs.js"></script>
@@ -14,19 +14,23 @@
 	<div class="container">
 		<div class="row">
 			<ul class="nav nav-pills">
-				<li role="presentation"><a href="#">Home</a></li>
-				<li role="presentation"><a href="#">Profile</a></li>
-				<li role="presentation"><a href="#">Messages</a></li>
+				<li role="presentation"><a href="index.html">Home</a></li>
+				<li role="presentation"><a href="swagger-ui.html">View the API's</a></li>
+				<li role="presentation"><a href="excelReport">Download in excel</a></li>
+				<li role="presentation"><a href="#">Import Excel soon...</a></li>
+				<li role="presentation"><a href="#">Analytics soon...</a></li>
+				<li role="presentation"><a href="logout">Logout</a></li>
+				
 			</ul>
 		</div>
 	</div>
 	<div class="jumbotron jum-b">
 		<div class="container">
 			<h1>
-				JOB <em>SEEK</em>ER!
+				JOB <em>KEEP</em>ER!
 			</h1>
-			<p>Lets get a job as soon possible.</p>
-			<small>Author: Bimarsh.</small>
+			<p>Patience is the Key</p>
+			<small>Author: Bimarsh</small>
 		</div>
 	</div>
 
@@ -38,7 +42,6 @@
 						<tr>
 							<th>Position</th>
 							<th>Date Applied</th>
-							<th>Interview Date</th>
 							<th>Company Name</th>
 							<th>EmployerType</th>
 							<th>Email</th>
@@ -94,10 +97,10 @@
 							TYPE</label>
 						<div class="col-md-4">
 							<label class="radio-inline" for="gender-0"> <input
-								type="radio" name="gender" id="employerType" value="RECRUITER"
+								type="radio" name="employerType" id="employerType" value="RECRUITER"
 								checked="checked"> RECRUITER
 							</label> <label class="radio-inline" for="gender-1"> <input
-								type="radio" name="gender" id="employerType" value="DIRECTHIRE">
+								type="radio" name="employerType" id="employerType" value="DIRECTHIRE">
 								DIRECTHIRE
 							</label>
 						</div>

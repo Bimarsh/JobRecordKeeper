@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.job.modal.Employer;
 import com.job.modal.Job;
+import com.job.modal.User;
 import com.job.repository.JobRepository;
 
 
@@ -93,6 +94,12 @@ public class JobServiceImpl implements JobService {
 	
 		jobRepository.delete(jobRepository.findOne(id));
 		
+	}
+
+	@Override
+	public List<Job> getJobByUser(User user) {
+		// TODO Auto-generated method stub
+		return jobRepository.findByUser(user);
 	}
 
 }
