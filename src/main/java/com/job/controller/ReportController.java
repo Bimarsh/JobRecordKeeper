@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.job.modal.Job;
 import com.job.modal.User;
+import com.job.reports.ExcelView;
 import com.job.service.CustomUserDetail;
 import com.job.service.JobService;
 
@@ -22,11 +23,12 @@ public class ReportController {
 	private JobService jobService;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String returnExcel(Model model, @AuthenticationPrincipal CustomUserDetail customUserDetail)
+	public ExcelView returnExcel(Model model, @AuthenticationPrincipal CustomUserDetail customUserDetail)
 	{
 		User user= customUserDetail.getUser();
 		List<Job> listofJob= jobService.getJobByUser(user);
 		model.addAttribute("jobs", listofJob);
-		return "forexView";
+		model.addAttribute("user", user);
+		return new ExcelView();
 	}
 }

@@ -23,7 +23,7 @@ public class ExcelView extends AbstractXlsxView {
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// change the file name
-	    response.setHeader("Content-Disposition", "attachment; filename=\"my-xls-file.xls\"");
+	    response.setHeader("Content-Disposition", "attachment; filename=\"JobReport.xls\"");
 
 	    @SuppressWarnings("unchecked")
 	    List<Job> jobs =  (List<Job>) model.get("jobs");
